@@ -38,13 +38,14 @@ Most fresher-level recommender projects rely on tabular metadata (genre tags, ra
 ## Project Structure
 
 ```
-├── app.py                # Streamlit application
-├── notebook.ipynb         # Data exploration, embedding extraction, experimentation
-├── sample_df.csv          # Metadata for the sampled 10,000-item subset
-├── embeddings.npy          # Precomputed ResNet50 embeddings for the subset
+├── app.py                  # Streamlit application
+├── Project.ipynb           # Data exploration, embedding extraction, experimentation
+├── sample_df.csv           # Metadata for the sampled 10,000-item subset
 ├── .streamlit/config.toml  # App theme configuration
 └── requirements.txt
 ```
+
+> **Note:** `embeddings.npy` (precomputed ResNet50 embeddings, ~80MB) is not committed to this repo due to GitHub's file size limits. It's generated locally by running `Project.ipynb` end-to-end (Step 7-9 in the notebook), which saves it into the project folder — required before running `app.py`.
 
 ## How to Run
 
@@ -54,7 +55,8 @@ Most fresher-level recommender projects rely on tabular metadata (genre tags, ra
    ```
    pip install -r requirements.txt
    ```
-4. Run the app:
+4. Run `Project.ipynb` to generate `embeddings.npy` (takes ~20-30 minutes on CPU)
+5. Run the app:
    ```
    streamlit run app.py
    ```
